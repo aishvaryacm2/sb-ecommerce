@@ -1,7 +1,6 @@
 package com.ecommerce.service;
 
 import com.ecommerce.model.Category;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
