@@ -1,16 +1,16 @@
 package com.ecommerce.service;
 
-import com.ecommerce.model.Category;
+import com.ecommerce.pojos.CategoryPOJO;
+import com.ecommerce.response.CategoryResponse;
 
-import java.util.List;
 
 public interface ICategoryService {
 
-    List<com.ecommerce.model.Category> getCategories();
+    CategoryResponse getCategories(int pageNumber, int pageSize, String sortBy, String sortOrder);
 
-    void createCategory(Category category);
+    void createCategory(CategoryPOJO categoryPOJO);
 
     String removeCategory(long id);
 
-    Category updateCategory(long id, Category category);
+    CategoryResponse updateCategory(long id, CategoryPOJO categoryPOJO);
 }
