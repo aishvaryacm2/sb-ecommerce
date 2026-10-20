@@ -1,9 +1,9 @@
 package com.ecommerce.wrapper;
 
 import com.ecommerce.model.Category;
-import com.ecommerce.pojos.CategoryPOJO;
+import com.ecommerce.dto.CategoryDTO;
 
-public class CategoryWrapper extends CategoryPOJO {
+public class CategoryWrapper extends CategoryDTO {
 
     private Category category;
 

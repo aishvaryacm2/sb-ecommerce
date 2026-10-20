@@ -3,7 +3,7 @@ package com.ecommerce.service;
 import com.ecommerce.constants.ResponseMessage;
 import com.ecommerce.exceptionhandler.ResourceNotFoundException;
 import com.ecommerce.model.Category;
-import com.ecommerce.pojos.CategoryPOJO;
+import com.ecommerce.dto.CategoryDTO;
 import com.ecommerce.repository.CategoryRepository;
 import com.ecommerce.response.CategoryResponse;
 import com.ecommerce.wrapper.CategoryWrapper;
@@ -54,12 +54,14 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public void createCategory(CategoryPOJO categoryPOJO) {
-        Category existingCategory = categoryRepository.findByCategoryName(categoryPOJO.getCategoryName());
+    public void createCategory(CategoryDTO categoryDTO) {
+        Category existingCategory = categoryRepository.findByCategoryName(categoryDTO.getCategoryName());
         if (existingCategory != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ResponseMessage.Category.CATEGORY_EXISTS);
         }
-        categoryRepository.save(new Category(categoryPOJO.getCategoryName()));
+        Category category = new Category();
+        category.setCategoryName(categoryDTO.getCategoryName());
+        categoryRepository.save(category);
     }
 
     @Override
@@ -76,7 +78,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
 
     @Override
-    public CategoryResponse updateCategory(long id, CategoryPOJO newCategory) {
+    public CategoryResponse updateCategory(long id, CategoryDTO newCategory) {
 
         if (id == 0) {
             throw new ResponseStatusException(

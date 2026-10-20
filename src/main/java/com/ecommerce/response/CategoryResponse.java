@@ -1,13 +1,12 @@
 package com.ecommerce.response;
 
-import com.ecommerce.pojos.CategoryPOJO;
+import com.ecommerce.dto.CategoryDTO;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public class CategoryResponse {
 
-    private List<CategoryPOJO> content;
+    private List<CategoryDTO> content;
     private int pageNumber;
     private int pageSize;
     private long totalSize;
@@ -17,15 +16,15 @@ public class CategoryResponse {
     public CategoryResponse() {
     }
 
-    public CategoryResponse(List<CategoryPOJO> content) {
+    public CategoryResponse(List<CategoryDTO> content) {
         this.content = content;
     }
 
-    public List<CategoryPOJO> getContent() {
+    public List<CategoryDTO> getContent() {
         return content;
     }
 
-    public void setContent(List<CategoryPOJO> content) {
+    public void setContent(List<CategoryDTO> content) {
         this.content = content;
     }
 

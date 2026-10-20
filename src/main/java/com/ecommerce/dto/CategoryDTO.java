@@ -1,6 +1,6 @@
-package com.ecommerce.pojos;
+package com.ecommerce.dto;
 
-public class CategoryPOJO  {
+public class CategoryDTO {
     private long id;
     private String categoryName;
 
